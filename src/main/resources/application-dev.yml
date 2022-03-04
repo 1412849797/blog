@@ -1,0 +1,80 @@
+#开发环境
+spring:
+  datasource:
+    #hikari连接池,号称最快的连接池
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+      auto-commit: true
+      minimum-idle: 2
+      idle-timeout: 60000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: DatebookHikariCP
+      maximum-pool-size: 5
+      #Redis配置，默认底层的Redis连接池为lettuce
+
+  redis:
+    host: 192.168.1.188
+    port: 6379
+    password: #你的redis密码，如果没有可以不设置
+    timeout: 1000
+    lettuce:
+      pool:
+        # 最大可用连接数（默认为8，负数表示无限）
+        max-active: 8
+        # 最大空闲连接数（默认为8，负数表示无限）
+        max-idle: 8
+        # 最小空闲连接数（默认为0，该值只有为正数才有作用）
+        min-idle: 0
+        # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+        max-wait: 1000
+
+  thymeleaf:
+    #开启模板缓存
+    cache: false
+    #检查模板是否存在再呈现
+    check-template: false
+    #检查模板位置是否正确
+    check-template-location: true
+    #Content-Type 的值（默认值： text/html ）
+    servlet.content-type: text/html
+    # 开启 MVC Thymeleaf 视图解析（默认值： true ）
+    enabled: true
+    # 模板编码
+    encoding: UTF-8
+    # 要运⽤于模板之上的模板模式。另⻅ StandardTemplate-ModeHandlers( 默认值： HTML5)
+    mode: HTML
+    # 在构建 URL 时添加到视图名称前的前缀（默认值： classpath:/templates/ ）
+    prefix: classpath:/templates/
+    # 在构建 URL 时添加到视图名称后的后缀（默认值： .html ）
+    suffix: .html
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
+#日志输出
+logging:
+  level:
+    root: warn
+    com.blog: info
+    #日志目录
+  file.path=: log/blog-dev.log
+
+  #mybatis没写
+mybatis:
+  type-aliases-package: com.example.blog.entity
+  #驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+#分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+server:
+  port: 8081

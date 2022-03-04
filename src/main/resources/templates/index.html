@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Standard Meta 适配移动设备 -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<!--标记处-->
+    <title th:text="#{web_IndexName}"></title>
+    <meta name="keywords" th:content="#{web_Keywords}">
+    <meta name="description" th:content="#{web_Description}">
+
+    <!--标记处-->
+    <div th:replace="/fragments/header :: common-js"></div>
+    <!--实现每日一言-->
+    <script src="/js/bluebird.min.js"></script>
+    <script src="/js/whatwg-fetch@2.0.3_fetch.js"></script>
+    <!--End-->
+    <script>
+        fetch('https://v1.hitokoto.cn/?max_length=21')
+            .then(function (res){
+                return res.json();
+            })
+            .then(function (data) {
+                const hitokoto = document.getElementById('hitokoto');
+                hitokoto.innerText =data.hitokoto;
+            })
+            .catch(function (err) {
+                console.error(err);
+            })
+    </script>
+
+
+</head>
+<body>
+
+<div id="workingArea">
+    <div th:replace="/fragments/header :: menu">
+    </div>
+<!--首页顶部背景-->
+    <div class="headContainer">
+        <!--标记处-->
+        <img src="/images/background/background5.jpg"  th:src="#{web_Background}" class="ui image backgroundImg" alt="首页格言背景图">
+        <div class="backgroundLayout">
+            <div class="myInfoDiv" align="center">
+                <img class="ui tiny circular image" src="/images/aboutMe/home.jpg" th:src="#{web_Home}" />
+                <div class="word">
+						<span>
+							 <div id="hitokoto" style="font-size:30px;color:#ffffff;">:D 获取中...</div>
+						</span>
+                </div>
+                <div class="myLink">
+                    <a id="wechat" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                    <a id="QQ" class="ui qq circular icon button"><i class="qq icon"></i></a>
+                    <a th:href="#{web_Github}" rel="nofollow" target="_blank" class="ui circular icon button"
+                       data-tooltip="点击进入github" data-position="bottom center" data-inverted="">
+                        <i class="github icon"></i>
+                    </a>
+                    <a th:href="#{web_Csdn}" rel="nofollow" target="_blank"
+                       class="ui circular icon button" data-tooltip="点击进入csdn" data-position="bottom center"
+                       data-inverted="">
+                        <i class="cuttlefish icon"></i>
+                    </a>
+                    <a th:href="#{web_Bilibili}" rel="nofollow" target="_blank" class="ui circular icon button"
+                       data-tooltip="点击进入b站" data-position="bottom center" data-inverted="">
+                        <i class="bimobject icon"></i>
+                    </a>
+
+                    <div id="wechatPic" class="ui flowing popup transition hidden">
+                        <img class="ui small rounded image" src="../static/images/aboutMe/contactOfWeChat.png" th:src="#{web_Wechat}" />
+                    </div>
+                    <div id="QQPic" class="ui flowing popup transition hidden">
+                        <img class="ui small rounded image" src="../static/images/aboutMe/contactOfQQ.png" th:src="#{web_QQ}">
+                    </div>
+                </div>
+                <div id="indexNavMenu" class="nav">
+                    <a href="/types" class="ui teal button">
+                        <i class="google wallet icon"></i>文章</a>
+                    <a href="/tags" class="ui twitter button">
+                        <i class="ui tag icon"></i>标签</a>
+                    <a href="/message" class="ui linkedin button">
+                        <i class="modx icon"></i>留言</a>
+                </div>
+                <div class="guidance">
+                    <i class="ui chevron down icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="recommendation">
+        <div class="ui vertical stackable grid container">
+            <div class="ui row">
+                <div class="eight wide column">
+                    <h3 class="ui header myWord">寄语</h3>
+                    <p>
+                        If not to the sun for smiling, warm is still in the sun there, but we will laugh more confident
+                        calm;
+                    </p>
+                    <p>
+                        if turned to found his own shadow, appropriate escape, the sun will be through the heart,warm
+                        each place behind the corner;
+                    </p>
+                    <p>
+                        if an outstretched palm cannot fall butterfly, then clenched waving arms, given power;
+                    </p>
+                    <p>
+                        if I cant have bright smile, it will face to the sunshine, and sunshine smile together, in full
+                        bloom.
+                    </p>
+<!--格言随机背景图-->
+                </div>
+                <div class="eight wide column" align="center">
+                    <img class="ui rounded huge image" th:src="#{web_GeYan}">
+                </div>
+            </div>
+<!--热点文章-->
+
+            <div class="row titleDiv">
+                <a href="/category" class="ui header title"><i class="red fire icon"></i>热点文章</a>
+            </div>
+            <div class="row hotArticles">
+                <div class="four wide column hotArticle" th:each="hotArticle:${hotBlogs}">
+                    <a th:href="@{/blog/{id}(id=${hotArticle.id})}">
+                        <div class="ui special cards">
+                            <div class="ui fluid raised link card">
+
+                                <div class="blurring dimmable image" >
+                                    <img src="" th:src="${hotArticle.firstPicture}"  >
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+<!--精选留言-->
+            <div class="row titleDiv">
+                <a href="/message" class="ui header title"><i class="orange codiepie icon"></i>最新留言</a>
+            </div>
+            <div class="row comments">
+                <div class="four wide column comment" th:each="message : ${messages}">
+                    <a class="ui fluid raised link card" href="/message" >
+                        <div class="content">
+                            <div class="header" th:text="${message.nickname}">评论名字</div>
+                            <div class="meta">
+                                <span class="right floated time" th:text="${#dates.format(message.createTime, 'yyyy-MM-dd')}">创建时间</span>
+                                <span class="comment">comment</span>
+                            </div>
+                            <div class="description" th:text="${message.content}">
+                              评论内容
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <div class="right floated author">
+                                <img class="ui avatar image" src="https://www.xiaoxuya.top/img/user/190.jpg" th:text="${message.nickname}">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+<!--推荐文章-->
+            <div class="row recommendTitleDiv">
+                <div class="recommendArticlesTitle">推荐文章</div>
+            </div>
+            <div class="three column row recommendArticles">
+                <div class="column recommendArticle" th:each="recommendBlog: ${recommendBlogs}">
+                    <div class="ui fluid raised link card">
+                        <a class="image" th:href="@{/blog/{id}(id=${recommendBlog.id})}">
+                            <img src="" th:src="${recommendBlog.firstPicture}">
+                        </a>
+                        <div class="ui circular articleInfo">
+                            <div class="articleTitle" th:text="${recommendBlog.title}">推荐文章标题</div>
+                            <div class="description">
+                                <span class="tipSpan"><i class="ui eye icon"></i><span class="viewNumber" th:text="${recommendBlog.views}">浏览量</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+<!--最新文章-->
+    <div class="newArticles">
+        <div class="ui vertical stackable grid container">
+            <div class="row titleDiv">
+                <a href="/types" class="ui header title"><i class="green leaf icon"></i>最新文章</a>
+            </div>
+            <div class="row ui raised link card segment article" th:each="blog : ${pageInfo.list}">
+                <div class="five wide column">
+                    <img class=" ui rounded image" src="" th:src="${blog.firstPicture}">
+                </div>
+                <div class="eleven wide column">
+                    <div class="content">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}"  class="ui teal right ribbon label" th:text="${blog.flag}">
+                        </a>
+                        <div class="articleHeader"><a th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}"></a>
+                        </div>
+                        <div class="overView">
+                            <a th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.description}"></a>
+                        </div>
+                        <div class="description">
+                            <span><i class="ui user circle icon"></i>作者: <span class="author" th:text="${blog.user.nickname}">作者名字</span></span>
+                            <span><i class="ui clock outline icon"></i>时间: <span class="publishDate" th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">几月几号</span></span>
+                            <span><i class="ui tag icon"></i>标签:
+                                         <span class="tags" >
+                                        <a href="#" th:href="@{/types/{id}(id=${blog.type.id})}" target="_blank" class="ui blue basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}">摸鱼方法</a>
+                                         </span>
+                                 </span>
+                            <span><i class="ui eye icon"></i>浏览量<span  class="viewNumber" th:text="${blog.views}"></span></span>
+                        </div>
+                    </div>
+       </div>
+            </div>
+
+<!-- 分页   -->
+            <div align="center" class="pagination paginationDiv">
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <div class="item"><a class="ui mini blue basic button" th:href="@{/(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>
+                    </div>
+                    <div class="right aligned column">
+                        <div class="item"><a class="ui mini blue basic button" th:href="@{/(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="toTop" class="circular ui icon button" style="display: none;">
+        <i class="ui caret up icon"></i>
+    </button>
+
+    <div>
+        <div class="ui tiny modal tipModal">
+            <div class="ui header">提示</div>
+            <div class="content">
+
+            </div>
+            <div class="actions">
+                <div class="ui teal button" id="tipCloseButton">
+                    确定
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div th:replace="/fragments/footer :: footer-content"></div>
+</div>
+
+
+</body>
+</html>
