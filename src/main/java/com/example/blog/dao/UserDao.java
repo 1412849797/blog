@@ -1,8 +1,7 @@
 package com.example.blog.dao;
 
 import com.example.blog.entity.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public interface UserDao {
      * @param id 用户id
      * @return user
      */
-    User getUserInfoById(Integer id);
+    User getUserInfoById(@Param("id") Integer id);
 
     /**
      * 得到所有用户
@@ -67,5 +66,5 @@ public interface UserDao {
      * @param name 用户名
      * @return 数量
      */
-    int getUserInfoByUsername(String name);
+    int getUserInfoByUsername(@Param("username") String name);
 }

@@ -1,7 +1,8 @@
 package com.example.blog.dao;
 
 import com.example.blog.entity.Type;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -38,18 +39,23 @@ public interface TypeDao {
      * @param name 分类名
      * @return 分类
      */
-    Type getTypeByName(String name);
+
+    Type getTypeByName(@Param("name") String name);
 
     /**
      * 得到所有分类
      * @return 分类列表
      */
+
     List<Type> getAllType();
 
     /**
      * 首页右侧展示type对应的博客数量
      * @return 分类列表
      */
+
+
+
     List<Type> getBlogType();
 
     /**
@@ -57,6 +63,7 @@ public interface TypeDao {
      * @param type 分类
      * @return 状态值
      */
+
     int updateType(Type type);
 
     /**
@@ -64,5 +71,6 @@ public interface TypeDao {
      * @param id 分类id
      * @return 状态值
      */
+
     int deleteType(Integer id);
 }
