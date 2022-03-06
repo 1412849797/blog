@@ -1,4 +1,4 @@
-package com.example.blog.entity;
+package com.blog.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,9 +15,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Type implements Serializable {
-
+public class User implements Serializable {
     private Integer id;
-    private String name;
+    private String nickname;
+    private String username;
+    private String password;
+    private String email;
+    private String avatar;
     private List<Blog> blogs = new ArrayList<>();
 }

@@ -67,9 +67,9 @@ logging:
 
   #mybatis没写
 mybatis:
-  type-aliases-package: com.example.blog.entity
+  type-aliases-package: com.blog.entity
   #ָ指定myBatis的核心配置文件与Mapper映射文件
-  #mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath*:mapper/*.xml
   #驼峰命名
   configuration:
     map-underscore-to-camel-case: true

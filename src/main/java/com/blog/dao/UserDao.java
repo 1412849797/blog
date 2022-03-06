@@ -1,6 +1,6 @@
-package com.example.blog.dao;
+package com.blog.dao;
 
-import com.example.blog.entity.User;
+import com.blog.entity.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package com.example.blog.dao;
+package com.blog.dao;
 
-import com.example.blog.entity.FriendLink;
+import com.blog.entity.FriendLink;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

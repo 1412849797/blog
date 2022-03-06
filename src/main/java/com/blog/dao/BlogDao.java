@@ -1,9 +1,8 @@
-package com.example.blog.dao;
+package com.blog.dao;
 
-import com.example.blog.entity.Blog;
-import com.example.blog.entity.BlogAndTag;
+import com.blog.entity.Blog;
+import com.blog.entity.BlogAndTag;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

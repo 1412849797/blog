@@ -8,7 +8,7 @@
         <version>2.5.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com</groupId>
     <artifactId>Blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Blog</name>
@@ -38,7 +38,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!--      ====-->
+
 
         <!--这三个jar包作用是将markdown格式转成html格式-->
         <dependency>
@@ -99,27 +99,13 @@
             <scope>runtime</scope>
             <version>8.0.28</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
+        <!-- lombok类-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--测试依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -131,6 +117,9 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--连接池-->
+
+
         <!-- 添加对 JDBC 的支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -142,23 +131,7 @@
             <scope>compile</scope>
         </dependency>
 
-    </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    </dependencies>
 
 </project>

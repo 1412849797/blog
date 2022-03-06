@@ -1,4 +1,4 @@
-package com.example.blog.exception;
+package com.blog.exception;
 
 /**
  * @Author 蔡梓阳

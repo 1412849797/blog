@@ -1,8 +1,6 @@
-package com.example.blog;
+package com.blog;
 
-import com.example.blog.dao.FriendLinkDao;
-import com.example.blog.dao.MessageDao;
-import com.example.blog.dao.UserDao;
+import com.blog.dao.FriendLinkDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,15 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 class BlogApplicationTests {
     @Autowired
     FriendLinkDao friendLinkDao;
-    @Autowired
-    UserDao userDao;
 
     @Test
     void contextLoads() {
         System.out.println(friendLinkDao.getFriendLinkByBlogAddress("baidu.com"));
         System.out.println(friendLinkDao.getCount());
         System.out.println(friendLinkDao.getFriendLink(1));
-        System.out.println(userDao.getAllUser());
+
     }
 
 }
