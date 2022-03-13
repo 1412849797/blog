@@ -73,6 +73,7 @@ mybatis:
   #驼峰命名
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #分页插件
 pagehelper:
   helper-dialect: mysql

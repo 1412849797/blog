@@ -72,4 +72,6 @@ public interface TypeDao {
      */
 
     int deleteType(Integer id);
+
+
 }

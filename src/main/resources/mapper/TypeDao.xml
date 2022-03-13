@@ -9,12 +9,12 @@
         select id,name from t_type where id = #{id}
     </select>
 
-    <insert id="saveType" parameterType="Type">
+    <insert id="saveType" parameterType="com.blog.entity.Type">
         insert into t_type values (#{id},#{name});
     </insert>
 
     <!--两个id可能会相冲，取别名即可-->
-    <resultMap id="type" type="Type">
+    <resultMap id="type" type="com.blog.entity.Type">
         <id property="id" column="tid"/>
         <result property="name" column="name"/>
         <collection property="blogs" ofType="Blog">
@@ -22,6 +22,7 @@
             <result property="title" column="title"/>
             <result property="typeId" column="type_id"/>
         </collection>
+
     </resultMap>
 
     <select id="getBlogType" resultMap="type">
