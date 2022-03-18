@@ -10,14 +10,14 @@
     <title th:text="'错误页——'+#{web_Name}"></title>
     <meta name="keywords" th:content="#{web_Keywords}">
     <meta name="description" th:content="#{web_Description}">
-    <div th:replace="/fragments/header :: common-js"></div>
+    <div th:replace="fragments/header :: common-js"></div>
 
 </head>
 
 <body>
 
 <div id="workingArea">
-    <div th:replace="/fragments/header :: menu"></div>
+    <div th:replace="fragments/header :: menu"></div>
     <br>
     <br>
     <div class="errorContent">
@@ -103,7 +103,7 @@
         </ul>
         <div th:utext="'--&gt;'" th:remove="tag"></div>
     </div>
-    <div th:replace="/fragments/footer :: footer-content"></div>
+    <div th:replace="fragments/footer :: footer-content"></div>
 </div>
 
 

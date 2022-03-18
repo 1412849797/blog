@@ -10,7 +10,7 @@
     <title th:text="'搜索结果 | '+ #{web_Name}"></title>
     <meta name="keywords" th:content="#{web_Keywords}">
     <meta name="description" th:content="#{web_Description}">
-    <div th:replace="/fragments/header :: common-js"></div>
+    <div th:replace="fragments/header :: common-js"></div>
 
 
 </head>
@@ -19,7 +19,7 @@
 
 <div id="workingArea">
 
-    <div th:replace="/fragments/header :: menu">
+    <div th:replace="fragments/header :: menu">
     </div>
     <div id="fillBackground" class="" >
     </div>
@@ -113,7 +113,7 @@
     <!--时间轴内容-->
 </div>
 <!--中间内容-->
-<div th:replace="/fragments/footer :: footer-content"></div>
+<div th:replace="fragments/footer :: footer-content"></div>
 
 
 

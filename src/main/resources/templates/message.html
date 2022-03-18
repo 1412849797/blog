@@ -26,14 +26,14 @@
                 console.error(err);
             })
     </script>
-    <div th:replace="/fragments/header :: common-js"></div>
+    <div th:replace="fragments/header :: common-js"></div>
 
 </head>
 <body>
 
 <!--导航-->
 <nav class="gird-header">
-    <div th:replace="/fragments/header :: menu">
+    <div th:replace="fragments/header :: menu">
     </div>
     <div class="pageHeadContainer">
         <img src="../static/images/background/background5.jpg"  th:src="#{message_Background}" class="ui image backgroundImg">
@@ -167,7 +167,7 @@
 
 
 <!--底部栏-->
-<div th:replace="/fragments/footer :: footer-content"></div>
+<div th:replace="fragments/footer :: footer-content"></div>
 
 
 

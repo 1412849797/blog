@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
     <!-- Standard Meta 适配移动设备 -->
     <meta charset="utf-8" />
@@ -12,7 +14,7 @@
     <meta name="description" th:content="#{web_Description}">
 
     <!--标记处-->
-    <div th:replace="/fragments/header :: common-js"></div>
+    <div th:replace="fragments/header :: common-js"></div>
     <!--实现每日一言-->
     <script src="/js/bluebird.min.js"></script>
     <script src="/js/whatwg-fetch@2.0.3_fetch.js"></script>
@@ -36,7 +38,7 @@
 <body>
 
 <div id="workingArea">
-    <div th:replace="/fragments/header :: menu">
+    <div th:replace="fragments/header :: menu">
     </div>
 <!--首页顶部背景-->
     <div class="headContainer">
@@ -246,7 +248,7 @@
         </div>
     </div>
     </div>
-    <div th:replace="/fragments/footer :: footer-content"></div>
+    <div th:replace="fragments/footer :: footer-content"></div>
 </div>
 
 

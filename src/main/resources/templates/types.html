@@ -28,13 +28,13 @@
                 console.error(err);
             })
     </script>
-    <div th:replace="/fragments/header :: common-js"></div>
+    <div th:replace="fragments/header :: common-js"></div>
 
 </head>
 <body>
 
 <div id="workingArea">
-    <div th:replace="/fragments/header :: menu">
+    <div th:replace="fragments/header :: menu">
     </div>
     <div class="pageHeadContainer">
         <img src="../static/images/background/background5.jpg"  th:src="#{types_Background}" class="ui image backgroundImg">
@@ -128,6 +128,6 @@
 
 <script type="text/javascript" src="/static/js/category.js" th:src="@{/js/category.js}"></script>
 
-<div th:replace="/fragments/footer :: footer-content"></div>
+<div th:replace="fragments/footer :: footer-content"></div>
 </body>
 </html>

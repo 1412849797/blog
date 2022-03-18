@@ -13,14 +13,14 @@
     <meta name="keywords" th:content="#{web_Keywords}">
     <meta name="description" th:content="#{web_Description}">
 
-    <div th:insert="/fragments/header :: common-js"></div>
+    <div th:insert="fragments/header :: common-js"></div>
 </head>
 <body>
 
 <div id="workingArea">
 
 
-    <div th:replace="/fragments/header :: menu"></div>
+    <div th:replace="fragments/header :: menu"></div>
 
     <div id="fillBackground" class="" >
     </div>
@@ -151,7 +151,7 @@
             </div>
         </div>
     </div>
-    <div th:replace="/fragments/footer :: footer-content"></div>
+    <div th:replace="fragments/footer :: footer-content"></div>
 
 </div>
 

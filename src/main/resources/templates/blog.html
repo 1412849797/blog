@@ -12,7 +12,7 @@
     <meta name="keywords" th:content="${blog.tagsToNames()}">
     <meta name="description" th:content="${blog.description} ? ${blog.description}: #{web_Description}">
     <!--标记处-->
-    <div th:replace="/fragments/header :: common-js"></div>
+    <div th:replace="fragments/header :: common-js"></div>
     <link rel="stylesheet" href="/lib/prism/prism.css" >
     <link rel="stylesheet" href="/css/donate.css" >
     <script type="text/javascript" src="/js/article.js"></script>
@@ -23,7 +23,7 @@
 
 <div id="workingArea">
 
-    <div th:replace="/fragments/header :: menu"></div>
+    <div th:replace="fragments/header :: menu"></div>
     <div class="pageHeadContainer">
         <img src="/images/geyan.jpg" th:src="${blog.firstPicture}" class="ui image backgroundImg">
         <div class="backgroundLayout">
@@ -115,7 +115,7 @@
     </button>
     <!--评论显示区，请插入合适的位置-->
 </div>
-<!---关闭评论区
+<!--
 <input type="hidden" th:value="#{valine_AppID}" id="data_1">
 <input type="hidden" th:value="#{valine_AppKey}" id="data_2">
 <div th:replace="/fragments/footer :: footer-content"></div>
@@ -145,6 +145,8 @@
 </script>
 
 -->
+
+
 
 </body>
 </html>
