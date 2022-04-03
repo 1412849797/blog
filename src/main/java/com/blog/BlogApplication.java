@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableCaching
 @EnableScheduling
-//@MapperScan(basePackages = "com.blog.dao")
 public class BlogApplication {
 
     public static void main(String[] args) {
