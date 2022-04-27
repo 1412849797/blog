@@ -17,17 +17,6 @@ services:
                      - myBlog
              ports:
                      - 3306:3306
-     app:
-             restart: always
-             image: blog-app:1.0
-             container_name: blog-web
-             volumes:
-                     - ./tmp:/tmp
-                     - ./logs:/logs
-             networks:
-                     - myBlog
-             ports:
-                     - 8080:8080
      redis:
              image: redis 
              container_name: docker_redis
