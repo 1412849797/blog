@@ -1,0 +1,68 @@
+version: '3'
+services:
+     db:
+             restart: always
+             image: mysql:8.0
+             container_name: my_mysql
+             volumes:
+                     - ./mysql_data:/var/lib/mysql
+                     - ./mysql_conf/my.cnf:/etc/mysql/my.cnf
+             environment:
+                     - "MYSQL_ROOT_PASSWORD=czy-root"
+                     - "MYSQL_DATABASE=blog"
+                     - "MYSQL_USER=czyblog"
+                     - "MYSQL_PASSWORD=czy"
+                     - "TZ=Asia/Shanghai"
+             networks:
+                     - myBlog
+             ports:
+                     - 3306:3306
+     app:
+             restart: always
+             image: blog-app:1.0
+             container_name: blog-web
+             volumes:
+                     - ./tmp:/tmp
+                     - ./logs:/logs
+             networks:
+                     - myBlog
+             ports:
+                     - 8080:8080
+     redis:
+             image: redis 
+             container_name: docker_redis
+             command: redis-server --requirepass czy200052
+             volumes:
+                     - ./redis_data:/data
+                     - ./redis_conf/redis.conf:/usr/local/etc/redis/redis.conf
+                       #                     - ./redis_conf/:/usr/local/etc/redis/
+                     - ./redis_logs:/logs
+             networks:
+                     - myBlog
+             ports:
+                     - 6666:6379
+
+
+networks:
+        myBlog:
+                driver: bridge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

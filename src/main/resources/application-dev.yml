@@ -3,10 +3,10 @@ spring:
   datasource:
     #hikari连接池,号称最快的连接池
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://127.0.0.1/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://my_mysql:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: root
+    password: czy-root
     hikari:
       auto-commit: true
       minimum-idle: 2
@@ -18,9 +18,9 @@ spring:
       #Redis配置，默认底层的Redis连接池为lettuce
 
   redis:
-    host: 1.13.254.237
-    port: 6379
-    password:
+    host: docker_redis
+    port: 6666
+    password: czy200052
     #你的redis密码，如果没有可以不设置
     timeout: 1000
     lettuce:
@@ -81,4 +81,4 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
 server:
-  port: 8081
+  port: 8080
