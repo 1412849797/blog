@@ -37,3 +37,7 @@ docker-compose up -d
 ✔️后台配置: properties
 
 ✔️缓存实现: Redis
+
+----
+感谢
+[文若君](https://github.com/laowenruo/)
