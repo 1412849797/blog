@@ -75,7 +75,7 @@ public class IndexController {
     @GetMapping("/blog/{id}")
     public String toLogin(@PathVariable Long id, Model model){
         Blog blog;
-        if (cache.hHasKey(RedisKey.ARTCILE, String.valueOf(id))){
+    /** if (cache.hHasKey(RedisKey.ARTCILE, String.valueOf(id))){
             blog = (Blog) cache.hGet(RedisKey.ARTCILE, String.valueOf(id));
         }else {
             blog = blogService.getDetailedBlog(id);
@@ -84,8 +84,9 @@ public class IndexController {
         if (!cache.hHasKey(RedisKey.ARTCILEVIEWS, String.valueOf(id))){
             cache.hSet(RedisKey.ARTCILEVIEWS, String.valueOf(id), blog.getViews());
         }
-        cache.hIncr(RedisKey.ARTCILEVIEWS, String.valueOf(id), 1L);
-        blog.setViews((Integer) cache.hGet(RedisKey.ARTCILEVIEWS, String.valueOf(id)));
+        cache.hIncr(RedisKey.ARTCILEVIEWS, String.valueOf(id), 1L);*/
+        blog = blogService.getDetailedBlog(id);
+  //blog.setViews((Integer) cache.hGet(RedisKey.ARTCILEVIEWS, String.valueOf(id)));
         model.addAttribute("blog", blog);
         return "blog";
     }
