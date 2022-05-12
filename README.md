@@ -40,4 +40,4 @@ docker-compose up -d
 
 ----
 感谢
-[文若君](https://github.com/laowenruo/)
+[文若君](https://github.com/laowenru)
