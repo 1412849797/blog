@@ -29,4 +29,6 @@ docker-compose up -d
 ##停止项目 docker-compose down
 ```
 **预览图**
-
+![index](https://raw.githubusercontent.com/1412849797/blog/xml/src/main/resources/static/images/demo/index.png)
+---
+![admin](https://raw.githubusercontent.com/1412849797/blog/xml/src/main/resources/static/images/demo/admin.png)
