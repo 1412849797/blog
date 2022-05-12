@@ -3,10 +3,10 @@ spring:
   datasource:
     #hikari连接池,号称最快的连接池
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://my_mysql:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: czy-root
+    password: root
     hikari:
       auto-commit: true
       minimum-idle: 2
